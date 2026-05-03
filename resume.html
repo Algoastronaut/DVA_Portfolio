@@ -4,162 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saumya Soni — Resume</title>
-  <meta name="description" content="Resume of Saumya Soni — Data Visualization & Analytics, Generative AI" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ===== PREMIUM 1-PAGE RESUME STYLES ===== */
+    /* ===== PREMIUM ULTRA-COMPACT RESUME ===== */
     :root {
       --bg: #0a0a0f;
       --bg-card: rgba(255,255,255,0.03);
-      --border: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.08);
       --text: #f0ece2;
       --text-sec: #8a8a9a;
-      --text-dim: #55556a;
       --accent: #d4af37;
       --accent-light: #e8cc6e;
     }
 
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { font-size: 14px; } /* Base font smaller for compact fit */
+    html { font-size: 13px; }
 
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.35;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top bar for Web View */
     .topbar {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,15,0.9); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
+      background: rgba(10,10,15,0.9); border-bottom: 1px solid var(--border);
+      padding: 10px 0;
     }
     .topbar-inner {
-      max-width: 850px; margin: 0 auto; padding: 0 24px;
+      max-width: 820px; margin: 0 auto; padding: 0 20px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .topbar a.back {
-      color: var(--text-sec); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    .topbar a { color: var(--text-sec); text-decoration: none; font-weight: 500; }
+    .topbar button {
+      background: var(--accent); color: var(--bg); border: none; padding: 6px 14px;
+      border-radius: 6px; font-weight: 600; cursor: pointer; font-family: inherit;
     }
-    .topbar a.back:hover { color: var(--accent); }
-    .btn-dl {
-      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
-      border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-      background: var(--accent); color: var(--bg); border: none; font-family: inherit; transition: all 0.3s;
-    }
-    .btn-dl:hover { background: var(--accent-light); }
 
-    /* A4 Resume Container */
+    /* Container */
     .resume-wrap {
-      max-width: 850px; /* A4 width proportion */
-      margin: 30px auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 36px 48px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      max-width: 820px; margin: 20px auto;
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 30px 40px; border-radius: 10px;
     }
 
     /* Header */
-    .res-header { text-align: center; margin-bottom: 20px; }
-    .res-header h1 {
-      font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2px;
-    }
-    .res-header h1 span { color: var(--accent); }
-    .res-header .tagline { font-size: 1rem; color: var(--accent-light); font-weight: 600; margin-bottom: 12px; }
+    .r-header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .r-header h1 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2px; }
+    .r-header h1 span { color: var(--accent); }
+    .r-header .subtitle { font-size: 0.95rem; font-weight: 600; color: var(--accent-light); margin-bottom: 6px; }
     
-    .res-contact {
-      display: flex; justify-content: center; gap: 16px; font-size: 0.85rem;
-    }
-    .res-contact a {
-      color: var(--text-sec); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s;
-    }
-    .res-contact a:hover { color: var(--accent); }
+    .r-contact { display: flex; justify-content: center; gap: 14px; font-size: 0.82rem; color: var(--text-sec); }
+    .r-contact a { color: inherit; text-decoration: none; font-weight: 500; }
 
-    /* 2-Column Layout */
-    .res-body {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 32px;
-    }
+    /* Summary */
+    .r-summary { font-size: 0.85rem; color: var(--text-sec); text-align: justify; margin-bottom: 14px; }
+
+    /* Layout */
+    .r-grid { display: grid; grid-template-columns: 2.1fr 1fr; gap: 24px; }
 
     /* Sections */
-    .res-section { margin-bottom: 18px; }
-    .res-section:last-child { margin-bottom: 0; }
-    
-    .res-section-title {
-      font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700;
-      color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;
-      border-bottom: 1px solid var(--border); padding-bottom: 4px; margin-bottom: 10px;
+    .sec-title {
+      font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border); padding-bottom: 2px; margin-bottom: 8px;
     }
 
     /* Entries */
-    .res-entry { margin-bottom: 14px; }
-    .res-entry:last-child { margin-bottom: 0; }
+    .entry { margin-bottom: 10px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-hdr { display: flex; justify-content: space-between; align-items: baseline; }
+    .entry h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .entry .date { font-size: 0.75rem; color: var(--text-sec); font-weight: 500; }
+    .entry .tech { font-size: 0.8rem; color: var(--accent-light); font-weight: 600; margin: 1px 0 3px; }
     
-    .res-entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-    .res-entry h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); }
-    .res-entry .date { font-size: 0.8rem; color: var(--text-sec); font-weight: 500; }
-    .res-entry .subtitle { font-size: 0.85rem; color: var(--accent-light); font-weight: 600; margin-bottom: 4px; }
-    
-    .res-entry ul { list-style: none; padding-left: 12px; }
-    .res-entry ul li {
-      font-size: 0.85rem; color: var(--text-sec); position: relative; margin-bottom: 4px; line-height: 1.35;
-    }
-    .res-entry ul li::before {
-      content: '•'; position: absolute; left: -10px; color: var(--accent); font-size: 0.9rem;
-    }
+    .entry ul { list-style: none; padding-left: 10px; }
+    .entry ul li { font-size: 0.82rem; color: var(--text-sec); position: relative; margin-bottom: 2px; }
+    .entry ul li::before { content: '•'; position: absolute; left: -10px; color: var(--accent); }
 
-    /* Skills (Right Column) */
-    .skill-group { margin-bottom: 12px; }
-    .skill-group h4 { font-size: 0.85rem; color: var(--text); font-weight: 600; margin-bottom: 2px; }
-    .skill-group p { font-size: 0.82rem; color: var(--text-sec); line-height: 1.4; }
+    /* Sidebar Skills */
+    .sk-group { margin-bottom: 8px; }
+    .sk-group h4 { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .sk-group p { font-size: 0.8rem; color: var(--text-sec); }
 
     /* Links */
-    .res-links { margin-top: 4px; }
-    .res-links a {
-      font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: 600; margin-right: 12px;
-    }
+    .links a { font-size: 0.75rem; color: var(--accent); text-decoration: none; font-weight: 600; margin-right: 8px; }
 
-    /* Print Optimization - Strictly 1 Page */
-    @page { size: A4 portrait; margin: 12mm 15mm; }
+    /* ===== STRICT PRINT STYLES ===== */
+    @page { size: A4 portrait; margin: 8mm 12mm; }
     
     @media print {
-      body { background: #fff; color: #111; font-size: 11pt; }
+      body { background: #fff; color: #111; font-size: 10pt; line-height: 1.25; }
       .topbar { display: none; }
-      .resume-wrap {
-        margin: 0; padding: 0; border: none; box-shadow: none; background: transparent; width: 100%; max-width: none;
-      }
-      .res-header h1 { color: #111; }
-      .res-header h1 span { color: #222; }
-      .res-header .tagline { color: #444; }
-      .res-contact a { color: #555; }
-      .res-section-title { color: #111; border-bottom: 1px solid #ccc; }
-      .res-entry h3 { color: #111; }
-      .res-entry .subtitle { color: #333; font-weight: 700; }
-      .res-entry ul li { color: #444; }
-      .res-entry ul li::before { color: #666; }
-      .skill-group h4 { color: #222; }
-      .skill-group p { color: #555; }
-      .res-links a { color: #333; text-decoration: underline; }
-      :root { --border: #eee; --text-sec: #555; --text: #111; --accent: #111; --accent-light: #333; }
-      /* Tighten spacing for print */
-      .res-body { gap: 24px; }
-      .res-header { margin-bottom: 16px; }
-      .res-section { margin-bottom: 14px; }
-      .res-entry { margin-bottom: 12px; }
-      .res-entry ul li { margin-bottom: 3px; line-height: 1.3; }
-    }
-
-    @media (max-width: 768px) {
-      .res-body { grid-template-columns: 1fr; }
-      .resume-wrap { padding: 24px; margin: 16px; }
+      .resume-wrap { margin: 0; padding: 0; border: none; background: transparent; max-width: 100%; }
+      
+      .r-header h1 { color: #111; }
+      .r-header h1 span { color: #111; }
+      .r-header .subtitle { color: #333; }
+      .r-contact { color: #555; }
+      .r-contact a { color: #555; }
+      .r-summary { color: #333; }
+      
+      .sec-title { color: #111; border-bottom: 1px solid #ccc; }
+      .entry h3 { color: #111; }
+      .entry .tech { color: #333; font-weight: 700; }
+      .entry ul li { color: #222; margin-bottom: 2px; }
+      .entry ul li::before { color: #555; }
+      .sk-group h4 { color: #111; }
+      .sk-group p { color: #444; }
+      .links a { color: #111; text-decoration: underline; }
+      
+      :root { --border: #ddd; }
+      
+      /* Force tighter margins to fit 1 page */
+      .r-header { margin-bottom: 8px; padding-bottom: 8px; }
+      .r-summary { margin-bottom: 10px; }
+      .r-grid { gap: 16px; }
+      .sec-title { margin-bottom: 6px; }
+      .entry { margin-bottom: 8px; }
+      .sk-group { margin-bottom: 6px; }
     }
   </style>
 </head>
@@ -167,147 +135,121 @@
 
 <div class="topbar">
   <div class="topbar-inner">
-    <a href="index.html" class="back">← Back</a>
-    <button class="btn-dl" onclick="window.print()">Download PDF</button>
+    <a href="index.html">← Back</a>
+    <button onclick="window.print()">Download PDF</button>
   </div>
 </div>
 
 <div class="resume-wrap">
   
-  <div class="res-header">
+  <div class="r-header">
     <h1>Saumya <span>Soni</span></h1>
-    <div class="tagline">Data Visualization & Analytics · AI Systems</div>
-    <div class="res-contact">
-      <a href="mailto:contact.saumya01@gmail.com">contact.saumya01@gmail.com</a>
-      <a href="https://github.com/Algoastronaut" target="_blank">github.com/Algoastronaut</a>
-      <a href="https://algoastronaut.github.io/DVA_Portfolio/" target="_blank">Portfolio</a>
+    <div class="subtitle">Data Visualization & Analytics · AI Systems</div>
+    <div class="r-contact">
+      <a href="mailto:contact.saumya01@gmail.com">contact.saumya01@gmail.com</a> |
+      <a href="https://github.com/Algoastronaut">github.com/Algoastronaut</a> |
+      <a href="https://algoastronaut.github.io/DVA_Portfolio/">Portfolio</a>
     </div>
   </div>
 
-  <div class="res-body">
-    <!-- Left Column (Main Content) -->
-    <div class="res-main">
+  <div class="r-summary">
+    Data-driven CS student specializing in robust data visualization dashboards (Tableau, Excel) and engineering generative AI applications (RAG, LangGraph) to solve complex analytical problems. Proven ability to transform raw, high-volume datasets into actionable insights.
+  </div>
+
+  <div class="r-grid">
+    <!-- Left Column (Projects) -->
+    <div>
+      <div class="sec-title">Selected Projects</div>
       
-      <div class="res-section">
-        <div class="res-section-title">Professional Summary</div>
-        <p style="font-size:0.88rem; color:var(--text-sec); line-height:1.5;">
-          Data-driven Computer Science student specializing in building robust data visualization dashboards (Tableau, Excel) and engineering generative AI applications (RAG, Agentic AI) to solve complex analytical problems.
-        </p>
+      <div class="entry">
+        <div class="entry-hdr">
+          <h3>Estate Agent AI — Autonomous Advisory System</h3>
+          <span class="date">2026</span>
+        </div>
+        <div class="tech">LangGraph, XGBoost, ChromaDB, Streamlit</div>
+        <ul>
+          <li>Engineered a 7-node LangGraph agent combining XGBoost property regression with RAG-based market intelligence (Knight Frank, JLL) to generate investor-grade reports.</li>
+          <li>Implemented rigorous anti-hallucination guardrails, confidence scoring, and automated retry loops to ensure 100% data-backed LLM outputs.</li>
+        </ul>
+        <div class="links"><a href="https://github.com/Algoastronaut/Estate_Agent">GitHub</a> <a href="https://estate-agent-ai.streamlit.app/">Live App</a></div>
       </div>
 
-      <div class="res-section">
-        <div class="res-section-title">Selected Projects</div>
-        
-        <div class="res-entry">
-          <div class="res-entry-header">
-            <h3>Estate Agent AI — Autonomous Advisory System</h3>
-            <span class="date">2026</span>
-          </div>
-          <div class="subtitle">LangGraph, XGBoost, ChromaDB, Streamlit</div>
-          <ul>
-            <li>Engineered a 7-node LangGraph agent combining XGBoost regression with RAG-based market intelligence to generate investor-grade property reports.</li>
-            <li>Implemented anti-hallucination guardrails, confidence scoring, and automated retry loops for LLM outputs.</li>
-          </ul>
-          <div class="res-links">
-            <a href="https://github.com/Algoastronaut/Estate_Agent">GitHub</a>
-            <a href="https://estate-agent-ai.streamlit.app/">Live App</a>
-          </div>
+      <div class="entry">
+        <div class="entry-hdr">
+          <h3>Airline Ticket Prices vs Fuel Costs Analysis</h3>
+          <span class="date">2026</span>
         </div>
-
-        <div class="res-entry">
-          <div class="res-entry-header">
-            <h3>Airline Ticket Prices vs Fuel Costs Analysis</h3>
-            <span class="date">2026</span>
-          </div>
-          <div class="subtitle">Tableau, Python, ARIMA, K-Means Clustering</div>
-          <ul>
-            <li>Built an automated ETL pipeline integrating 6 distinct aviation datasets, performing advanced statistical modeling (OLS regression, Welch's t-test).</li>
-            <li>Designed a dynamic 4-view Tableau dashboard identifying that fuel-to-fare pass-through is heavily influenced by external geopolitical/demand factors rather than 1:1 cost translation.</li>
-          </ul>
-          <div class="res-links">
-            <a href="https://github.com/Algoastronaut/C_G18_AirlineTicketPricesVsFuelCostsAnalysis">GitHub</a>
-          </div>
-        </div>
-
-        <div class="res-entry">
-          <div class="res-entry-header">
-            <h3>Indian Crime Trends Analytics Dashboard</h3>
-            <span class="date">2026</span>
-          </div>
-          <div class="subtitle">Google Sheets, Python, Pivot Tables</div>
-          <ul>
-            <li>Analyzed 40,000+ criminal records across 29 cities to uncover spatial vulnerability, gender disparity in victims (55.6% female), and investigation bottlenecks.</li>
-            <li>Developed an interactive KPI dashboard using complex pivot tables and calculated fields to drive data-informed policing insights.</li>
-          </ul>
-          <div class="res-links">
-            <a href="https://github.com/Algoastronaut/SectionC_Group4_CrimeTrends">GitHub</a>
-          </div>
-        </div>
-
-        <div class="res-entry">
-          <div class="res-entry-header">
-            <h3>Property Price Prediction System</h3>
-            <span class="date">2026</span>
-          </div>
-          <div class="subtitle">scikit-learn, Random Forest, Streamlit</div>
-          <ul>
-            <li>Developed an end-to-end regression pipeline for housing prices, optimizing Random Forest hyperparameters via RandomizedSearchCV.</li>
-            <li>Deployed the predictive model on Streamlit with interactive feature-importance visualizations and residual analysis charts.</li>
-          </ul>
-        </div>
+        <div class="tech">Tableau, Python, ARIMA, Statistical Modeling</div>
+        <ul>
+          <li>Built an automated ETL pipeline integrating 6 aviation datasets, performing advanced statistical modeling (OLS regression, Welch's t-test).</li>
+          <li>Designed a dynamic 4-view Tableau dashboard revealing that fuel-to-fare pass-through is driven heavily by geopolitical and demand factors rather than a strict 1:1 cost translation.</li>
+        </ul>
+        <div class="links"><a href="https://github.com/Algoastronaut/C_G18_AirlineTicketPricesVsFuelCostsAnalysis">GitHub</a></div>
       </div>
 
+      <div class="entry">
+        <div class="entry-hdr">
+          <h3>Indian Crime Trends Analytics Dashboard</h3>
+          <span class="date">2026</span>
+        </div>
+        <div class="tech">Google Sheets, Python, Pivot Tables</div>
+        <ul>
+          <li>Analyzed 40,000+ criminal records across 29 cities to uncover spatial vulnerability, gender disparity in victims (55.6% female), and investigation bottlenecks.</li>
+          <li>Developed an interactive KPI dashboard using complex pivot tables and calculated fields to drive data-informed policing insights.</li>
+        </ul>
+        <div class="links"><a href="https://github.com/Algoastronaut/SectionC_Group4_CrimeTrends">GitHub</a></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-hdr">
+          <h3>Property Price Prediction Pipeline</h3>
+          <span class="date">2026</span>
+        </div>
+        <div class="tech">scikit-learn, Random Forest, Pandas</div>
+        <ul>
+          <li>Developed an end-to-end regression pipeline for housing prices, optimizing Random Forest hyperparameters via RandomizedSearchCV.</li>
+          <li>Deployed the predictive model on Streamlit with interactive feature-importance visualizations and error residual analysis charts.</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Right Column (Sidebar) -->
-    <div class="res-side">
-      
-      <div class="res-section">
-        <div class="res-section-title">Education</div>
-        <div class="res-entry">
-          <div class="res-entry-header">
-            <h3 style="font-size:0.95rem;">Newton School of Tech</h3>
-          </div>
-          <div class="subtitle" style="margin-bottom:2px;">B.Tech CS & Data Science</div>
-          <div class="date" style="margin-bottom:8px;">2024 — 2028</div>
-          <p style="font-size:0.82rem; color:var(--text-sec); line-height:1.4;">
-            Focus on Machine Learning, Analytics, Data Structures, and Database Management.
-          </p>
-        </div>
+    <!-- Right Column (Edu & Skills) -->
+    <div>
+      <div class="sec-title">Education</div>
+      <div class="entry">
+        <h3 style="font-size:0.9rem;">Newton School of Tech</h3>
+        <div class="tech" style="color:var(--text); margin-bottom:0;">B.Tech CS & Data Science</div>
+        <div class="date" style="margin-bottom:4px;">2024 — 2028</div>
+        <div style="font-size:0.8rem; color:var(--text-sec);">Focus: Machine Learning, Analytics, Algorithms, Databases.</div>
       </div>
 
-      <div class="res-section">
-        <div class="res-section-title">Technical Skills</div>
-        <div class="skill-group">
-          <h4>Visualization</h4>
-          <p>Tableau, Excel, Google Sheets, Power BI, Pivot Tables</p>
-        </div>
-        <div class="skill-group">
-          <h4>Programming</h4>
-          <p>Python, SQL, NoSQL</p>
-        </div>
-        <div class="skill-group">
-          <h4>Machine Learning / AI</h4>
-          <p>scikit-learn, XGBoost, LangGraph, RAG, ChromaDB</p>
-        </div>
-        <div class="skill-group">
-          <h4>Data Libraries</h4>
-          <p>Pandas, NumPy, Matplotlib</p>
-        </div>
-        <div class="skill-group">
-          <h4>Tools & Platforms</h4>
-          <p>Git, GitHub, Streamlit</p>
-        </div>
+      <div class="sec-title" style="margin-top:16px;">Skills</div>
+      <div class="sk-group">
+        <h4>Visualization & BI</h4>
+        <p>Tableau, Excel, Google Sheets, Power BI, Pivot Tables</p>
+      </div>
+      <div class="sk-group">
+        <h4>Programming</h4>
+        <p>Python, SQL, NoSQL</p>
+      </div>
+      <div class="sk-group">
+        <h4>AI / Machine Learning</h4>
+        <p>scikit-learn, XGBoost, LangGraph, RAG, ChromaDB</p>
+      </div>
+      <div class="sk-group">
+        <h4>Data Libraries</h4>
+        <p>Pandas, NumPy, Matplotlib</p>
+      </div>
+      <div class="sk-group">
+        <h4>Tools</h4>
+        <p>Git, GitHub, Streamlit</p>
       </div>
 
-      <div class="res-section">
-        <div class="res-section-title">Achievements</div>
-        <div class="skill-group">
-          <h4>UDAI Hackathon</h4>
-          <p>Competed in data/AI hackathon, rapid prototyping intelligent solutions under strict time limits.</p>
-        </div>
+      <div class="sec-title" style="margin-top:16px;">Achievements</div>
+      <div class="sk-group">
+        <h4>UDAI Hackathon</h4>
+        <p>Competed in data/AI hackathon, rapid prototyping intelligent solutions under strict time limits.</p>
       </div>
-
     </div>
   </div>
 
